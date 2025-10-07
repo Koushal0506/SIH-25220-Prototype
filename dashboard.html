@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
+    
     <!-- Header -->
     <header class="header">
         <nav class="navbar">
@@ -171,37 +172,189 @@
                 </div>
 
                 <!-- Infection Heatmap -->
-                <div class="dashboard-card animate-fade-in">
-                    <div class="card-header">
-                        <h2>Hospital Infection Heatmap</h2>
-                        <div class="heatmap-legend">
-                            <span class="legend-item">
-                                <span class="legend-color low"></span>
-                                Low Risk
-                            </span>
-                            <span class="legend-item">
-                                <span class="legend-color medium"></span>
-                                Medium Risk
-                            </span>
-                            <span class="legend-item">
-                                <span class="legend-color high"></span>
-                                High Risk
-                            </span>
+    <div class="card animate-fade-in">
+                        <div class="card-header">
+                            <h2>Hospital Infection Heatmap</h2>
+                            <div class="heatmap-legend">
+                                <span class="legend-item">
+                                    <span class="legend-color low"></span>
+                                    Low Risk
+                                </span>
+                                <span class="legend-item">
+                                    <span class="legend-color medium"></span>
+                                    Medium Risk
+                                </span>
+                                <span class="legend-item">
+                                    <span class="legend-color high"></span>
+                                    High Risk
+                                </span>
+                                <span class="legend-item">
+                                    <span class="legend-color critical"></span>
+                                    Critical Risk
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-content">
-                        <div class="heatmap-container">
-                            <div class="hospital-floor">
-                                <div class="ward low-risk" data-ward="Ward A">Ward A</div>
-                                <div class="ward medium-risk" data-ward="Ward B">Ward B</div>
-                                <div class="ward high-risk" data-ward="ICU">ICU</div>
-                                <div class="ward low-risk" data-ward="Ward C">Ward C</div>
-                                <div class="ward medium-risk" data-ward="Emergency">Emergency</div>
-                                <div class="ward low-risk" data-ward="Surgery">Surgery</div>
+                        <div class="card-content">
+                            <div class="heatmap-container">
+                                <div class="hospital-layout">
+                                    <!-- Ground Floor -->
+                                    <div class="floor-row">
+                                        <div class="floor-label">G Floor</div>
+                                        <div class="floor-content">
+                                            <div class="ward reception low-risk">
+                                                <div class="ward-icon">🏥</div>
+                                                <div class="ward-name">Reception</div>
+                                                <div class="ward-risk">Low</div>
+                                                <div class="ward-details">Visitor area, minimal patient contact</div>
+                                            </div>
+                                            <div class="ward emergency-room critical-risk">
+                                                <div class="ward-icon">🚑</div>
+                                                <div class="ward-name">Emergency</div>
+                                                <div class="ward-risk">Critical</div>
+                                                <div class="ward-details">High traffic, urgent cases</div>
+                                            </div>
+                                            <div class="ward low-risk">
+                                                <div class="ward-icon">💊</div>
+                                                <div class="ward-name">Pharmacy</div>
+                                                <div class="ward-risk">Low</div>
+                                                <div class="ward-details">Medication distribution</div>
+                                            </div>
+                                            <div class="corridor">Main Corridor</div>
+                                            <div class="ward medium-risk">
+                                                <div class="ward-icon">🩺</div>
+                                                <div class="ward-name">OPD</div>
+                                                <div class="ward-risk">Medium</div>
+                                                <div class="ward-details">Outpatient department</div>
+                                            </div>
+                                            <div class="ward low-risk">
+                                                <div class="ward-icon">📋</div>
+                                                <div class="ward-name">Admin</div>
+                                                <div class="ward-risk">Low</div>
+                                                <div class="ward-details">Administrative offices</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- First Floor -->
+                                    <div class="floor-row">
+                                        <div class="floor-label">1st Floor</div>
+                                        <div class="floor-content">
+                                            <div class="ward general-ward-1 medium-risk">
+                                                <div class="ward-icon">🛏️</div>
+                                                <div class="ward-name">Ward 1</div>
+                                                <div class="ward-risk">Medium</div>
+                                                <div class="ward-details">General patients, stable condition</div>
+                                            </div>
+                                            <div class="ward general-ward-2 low-risk">
+                                                <div class="ward-icon">🛏️</div>
+                                                <div class="ward-name">Ward 2</div>
+                                                <div class="ward-risk">Low</div>
+                                                <div class="ward-details">General patients, recovery phase</div>
+                                            </div>
+                                            <div class="ward isolation-room high-risk">
+                                                <div class="ward-icon">🚫</div>
+                                                <div class="ward-name">Isolation</div>
+                                                <div class="ward-risk">High</div>
+                                                <div class="ward-details">Contagious disease containment</div>
+                                            </div>
+                                            <div class="corridor">East Wing Corridor</div>
+                                            <div class="ward nurse-station">
+                                                <div class="ward-icon">👩‍⚕️</div>
+                                                <div class="ward-name">Nurse Station</div>
+                                                <div class="ward-risk">Medium</div>
+                                                <div class="ward-details">Central monitoring point</div>
+                                            </div>
+                                            <div class="ward medium-risk">
+                                                <div class="ward-icon">🧪</div>
+                                                <div class="ward-name">Lab</div>
+                                                <div class="ward-risk">Medium</div>
+                                                <div class="ward-details">Sample testing area</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Second Floor -->
+                                    <div class="floor-row">
+                                        <div class="floor-label">2nd Floor</div>
+                                        <div class="floor-content">
+                                            <div class="ward icu-1 critical-risk">
+                                                <div class="ward-icon">💙</div>
+                                                <div class="ward-name">ICU 1</div>
+                                                <div class="ward-risk">Critical</div>
+                                                <div class="ward-details">Critical care, ventilated patients</div>
+                                            </div>
+                                            <div class="ward icu-2 high-risk">
+                                                <div class="ward-icon">💙</div>
+                                                <div class="ward-name">ICU 2</div>
+                                                <div class="ward-risk">High</div>
+                                                <div class="ward-details">Intensive monitoring required</div>
+                                            </div>
+                                            <div class="ward icu-3 critical-risk">
+                                                <div class="ward-icon">💙</div>
+                                                <div class="ward-name">ICU 3</div>
+                                                <div class="ward-risk">Critical</div>
+                                                <div class="ward-details">MDR-positive patients isolated</div>
+                                            </div>
+                                            <div class="corridor">ICU Corridor</div>
+                                            <div class="ward operating-room medium-risk">
+                                                <div class="ward-icon">🔪</div>
+                                                <div class="ward-name">OR 1</div>
+                                                <div class="ward-risk">Medium</div>
+                                                <div class="ward-details">Surgical procedures</div>
+                                            </div>
+                                            <div class="ward operating-room medium-risk">
+                                                <div class="ward-icon">🔪</div>
+                                                <div class="ward-name">OR 2</div>
+                                                <div class="ward-risk">Medium</div>
+                                                <div class="ward-details">Emergency surgeries</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="ward-risk-list" style="margin-top: 20px;">
+                                    <div class="ward-risk-item">
+                                        <div class="ward-risk-header">
+                                            <span class="ward-name">ICU Ward 3</span>
+                                            <span>92%</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill critical" style="width: 92%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ward-risk-item">
+                                        <div class="ward-risk-header">
+                                            <span class="ward-name">Emergency Ward</span>
+                                            <span>85%</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill critical" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ward-risk-item">
+                                        <div class="ward-risk-header">
+                                            <span class="ward-name">ICU Ward 1</span>
+                                            <span>78%</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill high" style="width: 78%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ward-risk-item">
+                                        <div class="ward-risk-header">
+                                            <span class="ward-name">Isolation Room</span>
+                                            <span>65%</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill high" style="width: 65%"></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </main>
