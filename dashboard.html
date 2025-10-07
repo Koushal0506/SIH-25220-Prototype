@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SurakshaSetu</title>
+    <meta name="description" content="Real-time hospital infection monitoring dashboard">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h2>SurakshaSetu</h2>
+                </div>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="features.html" class="nav-link">Features</a>
+                    <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                    <a href="research.html" class="nav-link">Research</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content">
+        <div class="container">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header animate-fade-in">
+                <h1>Hospital Infection Control Dashboard</h1>
+                <p>Real-time monitoring and tracking system</p>
+                <div class="dashboard-status">
+                    <span class="status-indicator active"></span>
+                    <span>System Active</span>
+                    <span class="last-update">Last updated: Just now</span>
+                </div>
+            </div>
+
+            <!-- Stats Overview -->
+            <div class="dashboard-stats">
+                <div class="stat-card animate-scale-in">
+                    <div class="stat-header">
+                        <h3>Total Patients</h3>
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="stat-value">1,247</div>
+                    <div class="stat-change positive">+12 today</div>
+                </div>
+
+                <div class="stat-card animate-scale-in" style="animation-delay: 0.1s">
+                    <div class="stat-header">
+                        <h3>Active Alerts</h3>
+                        <div class="stat-icon alert">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="stat-value">8</div>
+                    <div class="stat-change negative">3 critical</div>
+                </div>
+
+                <div class="stat-card animate-scale-in" style="animation-delay: 0.2s">
+                    <div class="stat-header">
+                        <h3>MDR Cases</h3>
+                        <div class="stat-icon warning">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                                <path d="m9 12 2 2 4-4"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="stat-value">23</div>
+                    <div class="stat-change neutral">2 new today</div>
+                </div>
+
+                <div class="stat-card animate-scale-in" style="animation-delay: 0.3s">
+                    <div class="stat-header">
+                        <h3>Response Time</h3>
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="stat-value">1.4m</div>
+                    <div class="stat-change positive">-0.3m avg</div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Patients Table -->
+                <div class="dashboard-card animate-fade-in">
+                    <div class="card-header">
+                        <h2>Recent Patient Activity</h2>
+                        <div class="card-actions">
+                            <button class="btn btn-outline btn-small">Filter</button>
+                            <button class="btn btn-outline btn-small">Export</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="table-container">
+                            <table class="patients-table">
+                                <thead>
+                                    <tr>
+                                        <th>Patient ID</th>
+                                        <th>Ward</th>
+                                        <th>Status</th>
+                                        <th>Last Contact</th>
+                                        <th>Risk Level</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="patients-table-body">
+                                    <!-- Table rows will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alerts and Heatmap -->
+                <div class="dashboard-grid">
+                    <!-- Recent Alerts -->
+                    <div class="dashboard-card animate-fade-in">
+                        <div class="card-header">
+                            <h2>Recent Alerts</h2>
+                            <span class="alert-badge">8 Active</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="alerts-list" id="alerts-list">
+                                <!-- Alerts will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ward Risk Analysis -->
+                    <div class="dashboard-card animate-fade-in">
+                        <div class="card-header">
+                            <h2>Ward Risk Analysis</h2>
+                        </div>
+                        <div class="card-content">
+                            <div class="ward-risk-list" id="ward-risk-list">
+                                <!-- Ward risks will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Infection Heatmap -->
+                <div class="dashboard-card animate-fade-in">
+                    <div class="card-header">
+                        <h2>Hospital Infection Heatmap</h2>
+                        <div class="heatmap-legend">
+                            <span class="legend-item">
+                                <span class="legend-color low"></span>
+                                Low Risk
+                            </span>
+                            <span class="legend-item">
+                                <span class="legend-color medium"></span>
+                                Medium Risk
+                            </span>
+                            <span class="legend-item">
+                                <span class="legend-color high"></span>
+                                High Risk
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="heatmap-container">
+                            <div class="hospital-floor">
+                                <div class="ward low-risk" data-ward="Ward A">Ward A</div>
+                                <div class="ward medium-risk" data-ward="Ward B">Ward B</div>
+                                <div class="ward high-risk" data-ward="ICU">ICU</div>
+                                <div class="ward low-risk" data-ward="Ward C">Ward C</div>
+                                <div class="ward medium-risk" data-ward="Emergency">Emergency</div>
+                                <div class="ward low-risk" data-ward="Surgery">Surgery</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SurakshaSetu</h3>
+                    <p>AI-powered hospital infection prevention system for protecting patients and healthcare workers.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="research.html">Research</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>team@surakshasetu.in</p>
+                    <p>+91 123 456 7890</p>
+                    <p>Smart India Hackathon 2025</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 SurakshaSetu | Smart India Hackathon Team 818_Vision Crafters</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
