@@ -85,7 +85,40 @@ document.addEventListener('DOMContentLoaded', function() {
         { ward: 'General Ward 2', risk: 18, level: 'success' },
         { ward: 'Surgery Ward', risk: 12, level: 'success' }
     ];
-    
+    // Add interactivity to the heatmap
+        document.addEventListener('DOMContentLoaded', function() {
+            const wards = document.querySelectorAll('.ward');
+            
+            wards.forEach(ward => {
+                ward.addEventListener('click', function() {
+                    const wardName = this.querySelector('.ward-name').textContent;
+                    const riskLevel = this.querySelector('.ward-risk').textContent;
+                    
+                    alert(`Ward: ${wardName}\nRisk Level: ${riskLevel}\n\nThis would show detailed analytics for this specific area.`);
+                });
+            });
+            
+            // Simulate real-time updates
+            setInterval(() => {
+                // Randomly update one ward's risk level for demonstration
+                const randomWard = wards[Math.floor(Math.random() * wards.length)];
+                const riskClasses = ['low-risk', 'medium-risk', 'high-risk', 'critical-risk'];
+                const currentClass = Array.from(randomWard.classList).find(cls => cls.includes('risk'));
+                
+                if (currentClass) {
+                    randomWard.classList.remove(currentClass);
+                    const newRiskClass = riskClasses[Math.floor(Math.random() * riskClasses.length)];
+                    randomWard.classList.add(newRiskClass);
+                    
+                    // Update the risk text
+                    const riskText = randomWard.querySelector('.ward-risk');
+                    if (riskText) {
+                        riskText.textContent = newRiskClass.replace('-risk', '').charAt(0).toUpperCase() + 
+                                              newRiskClass.replace('-risk', '').slice(1);
+                    }
+                }
+            }, 10000); // Update every 10 seconds
+        });
     // Populate patients table
     const patientsTableBody = document.getElementById('patients-table-body');
     if (patientsTableBody) {
