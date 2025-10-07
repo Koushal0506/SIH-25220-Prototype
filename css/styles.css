@@ -59,8 +59,200 @@
 
 html {
     scroll-behavior: smooth;
-}
-
+}        /* Heatmap specific styles */
+        .heatmap-container {
+            padding: var(--spacing-lg);
+            background: var(--muted);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        
+        .hospital-floor {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .ward {
+            aspect-ratio: 16/9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: var(--spacing-sm);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .ward:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .ward.low-risk {
+            background: var(--success);
+        }
+        
+        .ward.medium-risk {
+            background: var(--warning);
+        }
+        
+        .ward.high-risk {
+            background: var(--danger);
+        }
+        
+        .ward.critical-risk {
+            background: linear-gradient(135deg, var(--danger), #8b0000);
+            animation: pulse 2s infinite;
+        }
+        
+        .ward-icon {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .ward-name {
+            font-size: 0.85rem;
+            margin-bottom: 3px;
+        }
+        
+        .ward-risk {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2px 6px;
+            border-radius: 10px;
+        }
+        
+        .hospital-layout {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .floor-row {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+        
+        .floor-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            font-weight: 600;
+            color: var(--muted-foreground);
+        }
+        
+        .floor-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: var(--spacing-md);
+        }
+        
+        .corridor {
+            grid-column: span 5;
+            height: 20px;
+            background: var(--border);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: var(--muted-foreground);
+            margin: 5px 0;
+        }
+        
+        .nurse-station {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+        }
+        
+        .operating-room {
+            background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+        }
+        
+        .isolation-room {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+        
+        .emergency-room {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+        
+        .reception {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        
+        .heatmap-legend {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            margin-top: var(--spacing-lg);
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: var(--font-size-sm);
+        }
+        
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: var(--radius-full);
+        }
+        
+        .legend-color.low {
+            background: var(--success);
+        }
+        
+        .legend-color.medium {
+            background: var(--warning);
+        }
+        
+        .legend-color.high {
+            background: var(--danger);
+        }
+        
+        .legend-color.critical {
+            background: linear-gradient(135deg, var(--danger), #8b0000);
+        }
+        
+        .ward-details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            font-size: 0.7rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .ward:hover .ward-details {
+            transform: translateY(0);
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
 body {
     font-family: var(--font-family);
     font-size: var(--font-size-base);
